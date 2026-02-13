@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Safely - Phishing Protection</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header Section -->
+    <div class="header">
+      <div class="logo">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 2L4 9V15C4 22 9 27 16 30C23 27 28 22 28 15V9L16 2Z" stroke="#00ff88" stroke-width="2" fill="none"/>
+          <path d="M12 16L15 19L20 13" stroke="#00ff88" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <h1>Safely</h1>
+      </div>
+      <p class="subtitle">Scan this page for phishing or scam risks</p>
+    </div>
+
+    <!-- Scan Button -->
+    <button id="scanBtn" class="scan-button">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      Scan Current Page
+    </button>
+
+    <!-- Loading State -->
+    <div id="loading" class="loading hidden">
+      <div class="spinner"></div>
+      <p>Analyzing page content...</p>
+    </div>
+
+    <!-- Results Section -->
+    <div id="results" class="results hidden">
+      <div class="risk-score-container">
+        <div class="risk-score" id="riskScore">--</div>
+        <p class="risk-label">Risk Score</p>
+      </div>
+
+      <div class="threat-level" id="threatLevel">
+        <span class="threat-badge">Unknown</span>
+      </div>
+
+      <div class="warning-message" id="warningMessage">
+        <p>No scan performed yet</p>
+      </div>
+
+      <div class="timestamp" id="timestamp">
+        Last scanned: Never
+      </div>
+    </div>
+
+    <!-- Settings Toggle -->
+    <div class="settings-section">
+      <label class="toggle-container">
+        <input type="checkbox" id="autoScanToggle">
+        <span class="toggle-label">Continuous Protection (5s interval)</span>
+      </label>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p>Powered by AI • Local Analysis</p>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

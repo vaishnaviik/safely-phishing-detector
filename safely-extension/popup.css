@@ -1,0 +1,314 @@
+/* ===== GLOBAL RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 380px;
+  min-height: 500px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1d3d 100%);
+  color: #e0e0e0;
+  padding: 0;
+  margin: 0;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ===== HEADER ===== */
+.header {
+  text-align: center;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(0, 255, 136, 0.2);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.logo h1 {
+  font-size: 28px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #00ff88 0%, #00ccff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: #a0a0a0;
+  font-weight: 400;
+}
+
+/* ===== SCAN BUTTON ===== */
+.scan-button {
+  width: 100%;
+  padding: 14px 20px;
+  background: linear-gradient(135deg, #00ff88 0%, #00ccaa 100%);
+  border: none;
+  border-radius: 8px;
+  color: #0a0e27;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+}
+
+.scan-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 255, 136, 0.4);
+}
+
+.scan-button:active {
+  transform: translateY(0);
+}
+
+.scan-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ===== LOADING STATE ===== */
+.loading {
+  text-align: center;
+  padding: 30px 20px;
+  background: rgba(0, 255, 136, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(0, 255, 136, 0.2);
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 15px;
+  border: 4px solid rgba(0, 255, 136, 0.2);
+  border-top-color: #00ff88;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading p {
+  font-size: 14px;
+  color: #00ff88;
+}
+
+/* ===== RESULTS SECTION ===== */
+.results {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.risk-score-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.risk-score {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, #00ff88 0%, #00ccff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Risk score color variations */
+.risk-score.low {
+  background: linear-gradient(135deg, #00ff88 0%, #00cc66 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.risk-score.medium {
+  background: linear-gradient(135deg, #ffaa00 0%, #ff8800 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.risk-score.high {
+  background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.risk-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #a0a0a0;
+}
+
+/* ===== THREAT LEVEL ===== */
+.threat-level {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.threat-badge {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.threat-badge.low {
+  background: rgba(0, 255, 136, 0.2);
+  color: #00ff88;
+  border: 1px solid #00ff88;
+}
+
+.threat-badge.medium {
+  background: rgba(255, 170, 0, 0.2);
+  color: #ffaa00;
+  border: 1px solid #ffaa00;
+}
+
+.threat-badge.high {
+  background: rgba(255, 68, 68, 0.2);
+  color: #ff4444;
+  border: 1px solid #ff4444;
+}
+
+.threat-badge.unknown {
+  background: rgba(160, 160, 160, 0.2);
+  color: #a0a0a0;
+  border: 1px solid #a0a0a0;
+}
+
+/* ===== WARNING MESSAGE ===== */
+.warning-message {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #00ff88;
+  margin-bottom: 15px;
+}
+
+.warning-message p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #e0e0e0;
+  margin: 0;
+}
+
+.warning-message.high {
+  border-left-color: #ff4444;
+  background: rgba(255, 68, 68, 0.1);
+}
+
+.warning-message.medium {
+  border-left-color: #ffaa00;
+  background: rgba(255, 170, 0, 0.1);
+}
+
+/* ===== TIMESTAMP ===== */
+.timestamp {
+  text-align: center;
+  font-size: 11px;
+  color: #707070;
+  font-style: italic;
+}
+
+/* ===== SETTINGS SECTION ===== */
+.settings-section {
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.toggle-container input[type="checkbox"] {
+  width: 44px;
+  height: 24px;
+  appearance: none;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  flex-shrink: 0;
+}
+
+.toggle-container input[type="checkbox"]:checked {
+  background: #00ff88;
+}
+
+.toggle-container input[type="checkbox"]::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  top: 2px;
+  left: 2px;
+  transition: left 0.3s ease;
+}
+
+.toggle-container input[type="checkbox"]:checked::before {
+  left: 22px;
+}
+
+.toggle-label {
+  font-size: 13px;
+  color: #e0e0e0;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  text-align: center;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer p {
+  font-size: 11px;
+  color: #707070;
+  letter-spacing: 0.5px;
+}
+
+/* ===== UTILITY CLASSES ===== */
+.hidden {
+  display: none !important;
+}
