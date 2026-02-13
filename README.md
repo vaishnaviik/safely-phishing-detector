@@ -53,8 +53,6 @@ If a message contains a link, Safely:
 - Checks if security engines marked it malicious
 - Increases the risk score if the link is dangerous
 
-This makes the detection closer to **real cybersecurity tools**.
-
 ---
 
 ### 4. Streamlit web app
@@ -88,10 +86,4 @@ Like a **basic safety checker while browsing**.
 - VirusTotal API  
 - Chrome Extension (Manifest v3)  
 
----
 
-## How to run
-
-### Install requirements
-```bash
-pip install -r requirements.txt
